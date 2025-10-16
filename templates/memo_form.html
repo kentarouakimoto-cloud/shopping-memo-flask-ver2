@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-2xl mx-auto">
+<form method="post" class="space-y-4 glass p-6 rounded-2xl">
+<h2 class="text-2xl font-bold">{% if memo %}メモを編集{% else %}新しいメモを作成{% endif %}</h2>
+
+
+<label class="block text-sm text-slate-600">タイトル
+<input name="title" value="{{ memo.title if memo else '' }}" class="mt-1 w-full p-3 rounded-lg border border-slate-200 focus:outline-none" />
+</label>
+
+
+<label class="block text-sm text-slate-600">内容
+<textarea name="content" rows="6" class="mt-1 w-full p-3 rounded-lg border border-slate-200 focus:outline-none">{{ memo.content if memo else '' }}</textarea>
+</label>
+
+
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 rounded-lg accent">保存</button>
+<a href="{{ url_for('index') }}" class="px-4 py-2 rounded-lg border">キャンセル</a>
+</div>
+</form>
+</div>
+{% endblock %}
