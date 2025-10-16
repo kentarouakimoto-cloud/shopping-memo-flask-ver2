@@ -1,0 +1,1 @@
+# shopping-memo-flask-ver2
